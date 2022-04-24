@@ -1,0 +1,839 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+:root {
+  font-family: "Barlow Semi Condensed", sans-serif;
+  --BGimage: radial-gradient(
+    circle at top,
+    hsl(214, 47%, 23%),
+    hsl(237, 49%, 15%)
+  );
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  /*Display*/
+
+  background-image: var(--BGimage);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  width: 100%;
+
+  overflow: visible;
+
+  /* Positioning */
+}
+
+.scorecontainer {
+  display: flex;
+  justify-content: space-between;
+  outline: solid 0.2rem;
+  outline-color: hsl(217, 16%, 45%);
+  border-radius: 1rem;
+
+  margin: auto;
+  margin-top: 3rem;
+
+  z-index: 1;
+
+  width: 50%;
+  padding: 1rem;
+}
+.rpsgroup {
+  display: flex;
+  flex-direction: column;
+
+  color: white;
+
+  margin-bottom: 0.8rem;
+
+  font-weight: 600;
+  font-size: 2.5rem;
+}
+.rpsgroup span {
+  margin-bottom: -0.8rem;
+}
+.scoreboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 9rem;
+
+  border-radius: 0.5rem;
+
+  z-index: 3;
+
+  background-color: white;
+}
+#score {
+  color: hsl(229, 25%, 31%);
+
+  font-size: 4rem;
+  font-weight: 700;
+
+  margin-top: -0.5rem;
+}
+.stext {
+  color: hsl(229, 64%, 46%);
+
+  font-weight: 600;
+  font-size: 1.1rem;
+  letter-spacing: 0.2rem;
+
+  margin-top: 1rem;
+}
+/*sound switch*/
+.switchText {
+  color: white;
+  margin-right: 6px;
+}
+.sound-switch-wrapper {
+  display: flex;
+
+  flex-direction: row;
+
+  z-index: 2;
+
+  align-items: center;
+  justify-content: center;
+}
+.sound-switch {
+  position: relative;
+
+  height: 18px;
+  width: 34px;
+
+  z-index: 2;
+}
+
+.sound-switch input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+
+  background-color: white;
+
+  cursor: pointer;
+
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+
+  transition: 0.4s;
+
+  border-radius: 34px;
+}
+.slider:before {
+  background-color: blue;
+
+  content: "";
+
+  left: 2px;
+  top: 2px;
+
+  position: absolute;
+
+  transition: 0.4s;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50px;
+}
+input:checked + .slider:before {
+  transform: translateX(16px);
+}
+/* end of sound switch*/
+
+.maincontainer {
+  position: relative;
+
+  width: 100%;
+  max-width: 42rem;
+  height: 25rem;
+
+  margin: 0 auto;
+  margin-top: 2rem;
+
+  background-image: url("images/bg-triangle.svg");
+  background-repeat: no-repeat;
+  background-size: 60%;
+  background-position: center 5rem;
+}
+
+.icon {
+  cursor: pointer;
+
+  width: 10rem;
+  height: 10rem;
+
+  position: absolute;
+  left: 4rem;
+
+  transition: transform 1s;
+
+  border: 14px solid;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+}
+.icon:hover {
+  transform: scale(1.15);
+
+  opacity: 0.9;
+}
+.Paper {
+  top: 0;
+  left: 5rem;
+
+  background-image: url(images/icon-paper.svg);
+
+  border-color: hsl(230, 89%, 65%);
+  box-shadow: 0 7px 0 0 hsl(230, 89%, 62%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Scissors {
+  top: 0;
+  left: calc(100% - 17rem);
+
+  background-image: url(images/icon-scissors.svg);
+
+  border-color: hsl(40, 84%, 53%);
+  box-shadow: 0 7px 0 0 hsl(39, 98%, 35%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Rock {
+  top: 17rem;
+  left: 16rem;
+
+  background-image: url(images/icon-rock.svg);
+
+  border-color: hsl(349, 70%, 56%);
+  box-shadow: 0 7px 0 0 hsl(349, 71%, 52%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+/*Rules*/
+.rules {
+  margin-top: 1rem;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  height: fit-content;
+}
+#bnsbtn {
+  width: 15.5rem;
+
+  margin-left: 5rem;
+
+  cursor: pointer;
+
+  transition: transform 0.3s;
+
+  background: inherit;
+  outline: solid 0.2rem;
+  border: none;
+  outline-color: hsl(217, 16%, 45%);
+
+  color: white;
+  letter-spacing: 2px;
+
+  border-radius: 0.5rem;
+
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+#bnsbtn:hover {
+  transform: scale(0.8);
+}
+#rulesbtn {
+  width: 10rem;
+
+  margin-right: 5rem;
+
+  cursor: pointer;
+
+  transition: transform 0.3s;
+
+  background: inherit;
+  outline: solid 0.2rem;
+  border: none;
+  outline-color: hsl(217, 16%, 45%);
+
+  color: white;
+  letter-spacing: 2px;
+
+  border-radius: 0.5rem;
+
+  padding: 0.5rem 1.5rem 0.5rem 1.5rem;
+}
+#rulesbtn:hover {
+  transform: scale(0.8);
+}
+#modalbox {
+  display: none;
+
+  position: fixed;
+
+  z-index: 4;
+
+  left: 0;
+  top: 0;
+
+  padding-top: 5rem;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: auto;
+  background-color: hsl(0, 0%, 0%);
+  background-color: hsla(0, 0%, 0%, 0.6);
+}
+.rulescontainer {
+  position: relative;
+
+  width: 100%;
+  max-width: 25rem;
+  height: 27rem;
+
+  text-align: center;
+
+  margin: 0 auto;
+  margin-top: 6rem;
+
+  border-radius: 5px;
+
+  background: url(images/image-rules.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center 7rem;
+  background-color: white;
+
+  animation-name: rules;
+  animation-duration: 2s;
+  animation-timing-function: ease-out;
+}
+@keyframes rules {
+  from {
+    top: -50rem;
+    opacity: 0.5;
+  }
+
+  to {
+    top: 0;
+    opacity: 1;
+  }
+}
+
+.ruleheading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin: -0.1rem 2rem 0 2rem;
+}
+#rulesclosebtn {
+  background: none;
+  border: none;
+
+  width: fit-content;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+
+  transition: transform 0.2s;
+
+  cursor: pointer;
+}
+#rulesclosebtn:hover {
+  transform: scale(1.5);
+}
+.rulesmodaltxt {
+  font-size: 2rem;
+  font-weight: 700;
+
+  color: hsl(229, 25%, 31%);
+}
+/*end of Rules*/
+
+/*ResultPage*/
+.results {
+  position: absolute;
+
+  width: 50rem;
+  height: 25rem;
+
+  display: none;
+
+  top: 15rem;
+  left: 0;
+  right: 0;
+
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0 auto;
+
+  z-index: 1;
+}
+.pickcontainer {
+  display: grid;
+
+  grid-template-rows: repeat(2, max-content);
+
+  max-width: 100%;
+
+  justify-content: center;
+}
+.choiceheading {
+  display: grid;
+
+  max-width: 100%;
+
+  justify-content: center;
+
+  gap: 4rem;
+
+  z-index: 2;
+
+  grid-template-columns: repeat(3, max-content);
+}
+#youpicked {
+  margin-left: 3rem;
+}
+#housepicked {
+  margin-left: 7rem;
+}
+.choices {
+  display: grid;
+
+  max-width: fit-content;
+
+  height: 25rem;
+
+  padding: 1rem;
+  margin: auto;
+  margin-top: -2rem;
+
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+
+  gap: 5rem;
+
+  grid-template-columns: repeat(3, max-content);
+}
+.choicetext {
+  font-size: 1.6rem;
+  font-weight: 600;
+
+  color: white;
+}
+
+.choicedisp {
+  width: 17rem;
+  height: 17rem;
+
+  border: 14px solid;
+  border-radius: 50%;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: white;
+  background-size: 50%;
+}
+#paperchoice {
+  background-image: url(images/icon-paper.svg);
+  background-color: white;
+
+  border: 14px solid;
+  border-radius: 50%;
+  border-color: hsl(230, 89%, 65%);
+  box-shadow: 0 7px 0 0 hsl(230, 89%, 62%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+#scissorschoice {
+  background-image: url(images/icon-scissors.svg);
+  background-color: white;
+
+  border: 14px solid;
+  border-radius: 50%;
+  border-color: hsl(40, 84%, 53%);
+  box-shadow: 0 7px 0 0 hsl(39, 98%, 35%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+#rockchoice {
+  background-image: url(images/icon-rock.svg);
+  background-color: white;
+
+  border: 14px solid;
+  border-radius: 50%;
+  border-color: hsl(349, 70%, 56%);
+  box-shadow: 0 7px 0 0 hsl(349, 71%, 52%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+
+.gamestatus {
+  margin-top: 5rem;
+
+  line-height: 0%;
+
+  display: none;
+}
+.playagainBtn {
+  width: 14rem;
+
+  cursor: pointer;
+
+  color: hsl(349, 70%, 56%);
+
+  font-weight: 600;
+  font-size: 1rem;
+
+  padding: 1rem;
+
+  border-radius: 5px;
+
+  border: none;
+}
+#arngbtn {
+  background: none;
+
+  border: none;
+
+  cursor: alias;
+
+  display: none;
+}
+.winstatus {
+  color: white;
+
+  text-align: center;
+
+  font-size: 3rem;
+  font-weight: 700;
+}
+@keyframes animateYouWinMessage {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes draw-message {
+  0% {
+    left: -30%;
+  }
+  50% {
+    left: 30%;
+  }
+  100% {
+    left: -30%;
+  }
+}
+@keyframes loose-message {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+/*Winstatus Animation */
+#you-win-message {
+  animation-name: animateYouWinMessage;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+#draw-message {
+  position: relative;
+
+  animation-name: draw-message;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+#loose-message {
+  animation-name: loose-message;
+  animation-duration: 300ms;
+  animation-timing-function: linear;
+}
+.houseshadow {
+  width: 14rem;
+  height: 14rem;
+
+  border-radius: 50%;
+
+  background-color: hsl(0, 0%, 0%);
+  background-color: hsla(0, 0%, 0%, 0.3);
+}
+.choicedispHouse {
+  width: 17rem;
+  height: 17rem;
+
+  position: relative;
+
+  margin-left: -1rem;
+  margin-top: -1.5rem;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+}
+
+#houseclear {
+  display: none;
+}
+/*Winner Backannimation*/
+.cover {
+  position: absolute;
+
+  margin-top: -7rem;
+
+  height: 25rem;
+
+  z-index: -2;
+
+  visibility: hidden;
+}
+#coveruserwin {
+  left: -33.5%;
+}
+#coverhousewin {
+  left: 50%;
+}
+.backeffects {
+  opacity: 0.08;
+
+  border-style: groove;
+  border: 0.01px;
+  border-radius: 50%;
+
+  margin: auto;
+
+  background-color: black;
+}
+
+#outermost {
+  animation-name: effectsout;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+
+  width: 45rem;
+  height: 45rem;
+}
+#inbetween {
+  position: relative;
+  top: -40rem;
+
+  margin: auto;
+
+  animation-name: effectsbtw;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+
+  width: 35rem;
+  height: 35rem;
+}
+#innermost {
+  position: relative;
+  top: -72rem;
+
+  animation-name: effectsint;
+  animation-duration: 6s;
+  animation-iteration-count: infinite;
+
+  width: 27rem;
+  height: 27rem;
+}
+
+/* winner bacround keyframes effect*/
+@keyframes effectsout {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+@keyframes effectsbtw {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+@keyframes effectsint {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+/* end of winner bacround keyframes effect*/
+
+/* end of Winner Backannimation*/
+
+/*end of ResultPage*/
+.attribution {
+  font-size: 1.1rem;
+  text-align: center;
+
+  height: fit-content;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+/* Meida Queries*/
+@media screen and (max-width: 576px) {
+  body {
+    display: block;
+    margin: auto;
+  }
+  .scorecontainer {
+    width: 80%;
+
+    margin-bottom: 2rem;
+  }
+  .rules {
+    display: block;
+
+    margin: 0 auto;
+
+    margin-top: 20rem;
+  }
+  #bnsbtn {
+    display: block;
+    margin: 0 auto;
+  }
+  #rulesbtn {
+    display: block;
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: 4rem;
+  }
+  .choiceheading {
+    position: absolute;
+
+    top: 20rem;
+    justify-self: center;
+
+    gap: 3rem;
+  }
+  .maincontainer {
+    position: relative;
+
+    width: 80%;
+    height: 25rem;
+
+    margin: 0 auto;
+    margin-top: 5rem;
+
+    background-size: 80%;
+    background-position: center 5rem;
+  }
+  .choicedisp {
+    width: 15rem;
+    height: 15rem;
+    margin-left: 4rem;
+  }
+  .choicedispHouse {
+    width: 15rem;
+    height: 15rem;
+
+    top: 1rem;
+    left: auto;
+  }
+  .houseshadow {
+    margin-left: 2rem;
+  }
+  .Paper {
+    top: 2rem;
+    left: 2rem;
+  }
+  .Scissors {
+    top: 2rem;
+    left: calc(100% - 12rem);
+  }
+  .Rock {
+    top: 17rem;
+    left: 11rem;
+  }
+  .results {
+    width: 100%;
+    height: fit-content;
+
+    margin: auto;
+    text-align: center;
+
+    top: 20rem;
+    right: 0;
+    left: 0;
+  }
+  .gamestatus {
+    position: absolute;
+
+    width: fit-content;
+    height: fit-content;
+
+    top: 25rem;
+    justify-self: center;
+  }
+  #arngbtn {
+    top: 5rem;
+    position: absolute;
+    justify-self: center;
+  }
+  .cover {
+    position: absolute;
+
+    height: 5rem;
+    width: fit-content;
+
+    top: 4.5rem;
+
+    opacity: 2;
+  }
+  #coveruserwin {
+    left: -4rem;
+  }
+  #coverhousewin {
+    left: 41%;
+  }
+
+  #outermost {
+    width: 27rem;
+    height: 27rem;
+
+    top: 15rem;
+  }
+  #inbetween {
+    position: relative;
+    top: -24.5rem;
+
+    width: 22rem;
+    height: 22rem;
+  }
+  #innermost {
+    position: relative;
+    top: -44.5rem;
+
+    width: 18rem;
+    height: 18rem;
+  }
+}
+/* End of Meida Queries*/
