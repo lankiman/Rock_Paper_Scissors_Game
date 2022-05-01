@@ -64,6 +64,16 @@ function resultDisp() {
   mainmodal.style.visibility = "hidden";
   resultmodal.style.display = "block";
 }
+function bonousGame() {
+  houseOptions = [1, 2, 3, 4, 5];
+
+  /** 1 represents Paper
+ *  2 represents Scissors
+ *  3 Represents Rock
+ *  4 Represents Spoke
+ *  5 Represents Lizard
+*/
+}
 function House() {
   setTimeout(() => {
     if (houseChoice == 1) {
@@ -182,11 +192,11 @@ function paperpick() {
   if (userchoice == paper && houseChoice == 1) {
     resultMsg.textContent = "DRAW 😱";
     effCtDet = 1;
-  } else if (userchoice == paper && houseChoice == 2) {
+  } else if (userchoice == paper && (houseChoice == 2 || houseChoice == 5)) {
     resultMsg.textContent = "YOU LOOSE 😞";
     scoreDcr();
     effCtDet = 2;
-  } else if (userchoice == paper && houseChoice == 3) {
+  } else if (userchoice == paper && (houseChoice == 3 || houseChoice == 4)) {
     resultMsg.textContent = "YOU WIN 😎";
     scoreIcr();
     effCtDet = 3;
@@ -197,11 +207,11 @@ function scissorspick() {
   if (userchoice == scissors && houseChoice == 2) {
     resultMsg.textContent = "DRAW 😱";
     effCtDet = 1;
-  } else if (userchoice == scissors && houseChoice == 3) {
+  } else if (userchoice == scissors && (houseChoice == 3 || houseChoice == 4)) {
     resultMsg.textContent = "YOU LOOSE 😞";
     scoreDcr();
     effCtDet = 2;
-  } else if (userchoice == scissors && houseChoice == 1) {
+  } else if (userchoice == scissors && (houseChoice == 1 || houseChoice == 5)) {
     resultMsg.textContent = "YOU WIN 😎";
     scoreIcr();
     effCtDet = 3;
@@ -212,11 +222,11 @@ function rockpick() {
   if (userchoice == rock && houseChoice == 3) {
     resultMsg.textContent = "DRAW 😱";
     effCtDet = 1;
-  } else if (userchoice == rock && houseChoice == 1) {
+  } else if (userchoice == rock && (houseChoice == 1 || houseChoice == 4)) {
     resultMsg.textContent = "YOU LOOSE 😞";
     scoreDcr();
     effCtDet = 2;
-  } else if (userchoice == rock && houseChoice == 2) {
+  } else if (userchoice == rock && (houseChoice == 2 || houseChoice == 5)) {
     resultMsg.textContent = "YOU WIN 😎";
     scoreIcr();
     effCtDet = 3;
@@ -225,9 +235,11 @@ function rockpick() {
 
 function Detwinner() {
   /** 1 represents Paper
-   *  2 represents Scissors
-   *  3 Represents Rock
-   */
+ *  2 represents Scissors
+ *  3 Represents Rock
+ *  4 Represents Spoke
+ *  5 Represents Lizard
+*/
   setTimeout(() => {
     paperpick();
     scissorspick();
@@ -278,4 +290,3 @@ function textAnim() {
     looseSound.play();
   }
 }
-console.log(houseChoice);
