@@ -7,7 +7,6 @@
     hsl(237, 49%, 15%)
   );
 }
-
 * {
   box-sizing: border-box;
 }
@@ -599,7 +598,7 @@ input:checked + .slider:before {
 .cover {
   position: absolute;
 
-  margin-top: -7rem;
+  margin-top: -6rem;
 
   height: 25rem;
 
@@ -608,10 +607,10 @@ input:checked + .slider:before {
   visibility: hidden;
 }
 #coveruserwin {
-  left: -33.5%;
+  left: -37%;
 }
 #coverhousewin {
-  left: 50%;
+  left: 55%;
 }
 .backeffects {
   opacity: 0.08;

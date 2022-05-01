@@ -13,6 +13,7 @@
     />
 
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="bonous.css" />
 
     <title>Frontend Mentor | Rock, Paper, Scissors</title>
   </head>
@@ -22,6 +23,8 @@
         <span>ROCK</span>
         <span>PAPER</span>
         <span>SCISSORS</span>
+        <span>LIZARD</span>
+        <span>SPOKE</span>
       </div>
 
       <div id="scoreboard" class="scoreboard">
@@ -61,6 +64,20 @@
         class="icon Rock"
         id="Rock"
       ></div>
+
+      <div
+        onclick="LizardCh(), chpick()"
+        data-choice="Lizard"
+        class="icon Lizard"
+        id="Lizard"
+      ></div>
+
+      <div
+        onclick="SpockCh(), chpick()"
+        data-choice="Spock"
+        class="icon Spock"
+        id="Spock"
+      ></div>
     </main>
 
     <section id="results" class="results">
@@ -82,7 +99,7 @@
           <div class="gamestatus" id="gamestatus">
             <p class="winstatus" id="winstatus"></p>
             <button
-              onclick="playAgain()"
+              onclick="playAgain(), bonousGame()"
               class="playagainBtn"
               id="playagainBtn"
             >
@@ -109,8 +126,8 @@
     </div>
 
     <section class="rules">
-      <button onclick="location.href='bonous.html';" id="bnsbtn">
-        BONOUS GAME
+      <button onclick="location.href='index.html';" id="bnsbtn">
+        MAIN GAME
       </button>
       <button onclick="rules();" id="rulesbtn">RULES</button>
     </section>

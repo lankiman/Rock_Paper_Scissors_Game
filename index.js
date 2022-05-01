@@ -5,6 +5,8 @@ const closemdoal = document.getElementById("modalbox");
 const paper = document.getElementById("Paper");
 const scissors = document.getElementById("Scissors");
 const rock = document.getElementById("Rock");
+const lizard = document.getElementById("Lizard");
+const spock = document.getElementById("Spock");
 const scoreEl = document.getElementById("score");
 const resultMsg = document.getElementById("winstatus");
 const winStatusBx = document.getElementById("gamestatus");
@@ -39,7 +41,6 @@ function chpick() {
 var userchoice = 0;
 var userPick = document.getElementById("userpick");
 var housePick = document.getElementById("housepick");
-var userOptions = [rock, paper, scissors];
 var houseOptions = [1, 2, 3];
 
 /** 1 represents Paper
@@ -63,26 +64,29 @@ function resultDisp() {
   mainmodal.style.visibility = "hidden";
   resultmodal.style.display = "block";
 }
-
 function House() {
   setTimeout(() => {
     if (houseChoice == 1) {
       housePick.setAttribute("id", "paperchoice");
     } else if (houseChoice == 2) {
       housePick.setAttribute("id", "scissorschoice");
-    } else {
+    } else if (houseChoice == 3) {
       housePick.setAttribute("id", "rockchoice");
+    } else if (houseChoice == 4) {
+      housePick.setAttribute("id", "spockchoice");
+    } else {
+      housePick.setAttribute("id", "lizardchoice");
     }
   }, 1000);
 }
 function playAgain() {
-  playAG.play();
   mainmodal.style.visibility = "visible";
   resultmodal.style.display = "none";
   houseChoice = Math.floor(Math.random() * houseOptions.length) + 1;
   housePick.setAttribute("id", "houseclear");
   arngBtn.style.display = "none";
   winStatusBx.style.display = "none";
+  playAG.play();
   clrbackEft();
 }
 
@@ -119,7 +123,61 @@ function scoreDcr() {
   score -= 1;
   scoreEl.innerHTML = score;
 }
+//Bonous Game Conditions
 
+function bonousGame() {
+  houseOptions = [1, 2, 3, 4, 5];
+  houseChoice = Math.floor(Math.random() * houseOptions.length) + 1;
+
+  /** 1 represents Paper
+ *  2 represents Scissors
+ *  3 Represents Rock
+ *  4 Represents Spoke
+ *  5 Represents Lizard
+*/
+}
+function SpockCh() {
+  resultDisp();
+  userPick.setAttribute("id", "spockchoice");
+  userchoice = spock;
+  House();
+  Detwinner();
+}
+function spockpick() {
+  if (userchoice == spock && houseChoice == 4) {
+    resultMsg.textContent = "DRAW 😱";
+    effCtDet = 1;
+  } else if (userchoice == spock && (houseChoice == 1 || houseChoice == 5)) {
+    resultMsg.textContent = "YOU LOOSE 😞";
+    scoreDcr();
+    effCtDet = 2;
+  } else if (userchoice == spock && (houseChoice == 2 || houseChoice == 3)) {
+    resultMsg.textContent = "YOU WIN 😎";
+    scoreIcr();
+    effCtDet = 3;
+  }
+}
+function LizardCh() {
+  resultDisp();
+  userPick.setAttribute("id", "lizardchoice");
+  userchoice = lizard;
+  House();
+  Detwinner();
+}
+function lizardpick() {
+  if (userchoice == lizard && houseChoice == 5) {
+    resultMsg.textContent = "DRAW 😱";
+    effCtDet = 1;
+  } else if (userchoice == lizard && (houseChoice == 2 || houseChoice == 3)) {
+    resultMsg.textContent = "YOU LOOSE 😞";
+    scoreDcr();
+    effCtDet = 2;
+  } else if (userchoice == lizard && (houseChoice == 1 || houseChoice == 4)) {
+    resultMsg.textContent = "YOU WIN 😎";
+    scoreIcr();
+    effCtDet = 3;
+  }
+}
 function paperpick() {
   if (userchoice == paper && houseChoice == 1) {
     resultMsg.textContent = "DRAW 😱";
@@ -174,6 +232,8 @@ function Detwinner() {
     paperpick();
     scissorspick();
     rockpick();
+    spockpick();
+    lizardpick();
 
     if (score < 0) {
       scoreBoard.style.backgroundColor = "red";
@@ -218,3 +278,4 @@ function textAnim() {
     looseSound.play();
   }
 }
+console.log(houseChoice);

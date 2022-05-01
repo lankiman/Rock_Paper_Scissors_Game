@@ -1,0 +1,180 @@
+body {
+  animation: pageload 5sec;
+}
+@keyframes pageload {
+  from {
+    opacity: 0;
+    transform: rotateX(-10deg);
+  }
+  to {
+    opacity: 1;
+    transform: rotateX(0);
+  }
+}
+
+.rpsgroup {
+  font-size: 1.9rem;
+}
+.rpsgroup span {
+  margin-bottom: -0.7rem;
+}
+
+#score {
+  font-size: 5rem;
+
+  margin-top: 0;
+}
+
+.maincontainer {
+  margin: 0 auto;
+  margin-top: 3rem;
+
+  background-image: url("images/bg-pentagon.svg");
+  background-size: 50%;
+  background-position: center 3rem;
+}
+.results {
+  top: 18rem;
+}
+.icon {
+  width: 8rem;
+  height: 8rem;
+
+  position: absolute;
+  left: 4rem;
+
+  border: 12px solid;
+
+  background-size: 70%;
+}
+.rulescontainer {
+  height: 28rem;
+
+  background: url(images/image-rules-bonus.svg);
+  background-repeat: no-repeat;
+  background-size: 80%;
+  background-position: center 7rem;
+  background-color: white;
+}
+.Paper {
+  top: 5rem;
+  left: 26rem;
+
+  background-image: url(images/icon-paper.svg);
+
+  border-color: hsl(230, 89%, 65%);
+  box-shadow: 0 7px 0 0 hsl(230, 89%, 62%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Scissors {
+  top: -1rem;
+  left: 17rem;
+
+  background-image: url(images/icon-scissors.svg);
+
+  border-color: hsl(40, 84%, 53%);
+  box-shadow: 0 7px 0 0 hsl(39, 98%, 35%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Rock {
+  top: 17rem;
+  left: 24rem;
+
+  background-image: url(images/icon-rock.svg);
+
+  border-color: hsl(349, 70%, 56%);
+  box-shadow: 0 7px 0 0 hsl(349, 71%, 52%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Lizard {
+  top: 17rem;
+  left: 10rem;
+
+  background-image: url(images/icon-lizard.svg);
+
+  border-color: hsl(261, 72%, 63%);
+  box-shadow: 0 7px 0 0 hsl(261, 73%, 60%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+.Spock {
+  top: 5rem;
+  left: 8rem;
+
+  background-image: url(images/icon-spock.svg);
+
+  border-color: hsl(189, 58%, 57%);
+  box-shadow: 0 7px 0 0 hsl(189, 59%, 53%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+#spockchoice {
+  background-image: url(images/icon-spock.svg);
+  background-color: white;
+
+  border: 14px solid;
+  border-radius: 50%;
+  border-color: hsl(189, 58%, 57%);
+  box-shadow: 0 7px 0 0 hsl(189, 59%, 53%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+#lizardchoice {
+  background-color: white;
+
+  border: 14px solid;
+  border-radius: 50%;
+  background-image: url(images/icon-lizard.svg);
+
+  border-color: hsl(261, 72%, 63%);
+  box-shadow: 0 7px 0 0 hsl(261, 73%, 60%), inset 0 5px 2px 0 hsl(240, 3%, 79%);
+}
+/* Meida Queries*/
+@media screen and (max-width: 576px) {
+  .maincontainer {
+    position: relative;
+
+    width: 80%;
+    height: 25rem;
+
+    margin: 0 auto;
+    margin-top: 5rem;
+
+    background-size: 65%;
+    background-position: center 5rem;
+  }
+
+  .Paper {
+    top: 9rem;
+    left: 21rem;
+  }
+  .Scissors {
+    top: 2rem;
+    left: calc(100% - 21rem);
+  }
+  .Rock {
+    top: 20rem;
+    left: 19rem;
+  }
+  .Spock {
+    top: 9rem;
+    left: 3rem;
+  }
+  .Lizard {
+    top: 20rem;
+    left: 8rem;
+  }
+
+  #modalbox {
+    position: absolute;
+
+    max-width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+  }
+  .rulescontainer {
+    position: relative;
+    max-width: 100%;
+    height: 100vh;
+
+    overflow: hidden;
+
+    margin-top: -5rem;
+
+    background-size: 80%;
+    background-position: center;
+  }
+}
+/* End of Meida Queries*/
