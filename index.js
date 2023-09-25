@@ -251,9 +251,10 @@ function Detwinner() {
       scoreBoard.style.backgroundColor = "red";
     } else if (score = 0) {
       scoreBoard.style.backgroundColor = "white";
-    } else if (score > 0) { 
+    } else{
        scoreBoard.style.backgroundColor = "green"; 
      }
+
     arngBtn.style.display = "block";
     winStatusBx.style.display = "block";
     backEft();
