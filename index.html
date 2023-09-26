@@ -107,47 +107,48 @@
         </div>
       </section>
     </div>
+    <section id="footer">
+      <section class="rules">
+        <button onclick="location.href='bonous.html';" id="bnsbtn">
+          BONOUS GAME
+        </button>
+        <button onclick="rules();" id="rulesbtn">RULES</button>
+      </section>
 
-    <section class="rules">
-      <button onclick="location.href='bonous.html';" id="bnsbtn">
-        BONOUS GAME
-      </button>
-      <button onclick="rules();" id="rulesbtn">RULES</button>
+      <section>
+        <audio loop data-sound="bg-sound">
+          <source src="sounds/bgSound.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio data-sound="user-choice">
+          <source src="sounds/userChoice.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio data-sound="win">
+          <source src="sounds/youWin.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio data-sound="loose">
+          <source src="sounds/youLose.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio data-sound="draw">
+          <source src="sounds/draw.mp3" type="audio/mpeg" />
+        </audio>
+
+        <audio data-sound="again">
+          <source src="sounds/playAgain.mp3" type="audio/mpeg" />
+        </audio>
+      </section>
+
+      <footer class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by
+        <a href="https://github.com/lankiman" target="_blank">Lankiman</a>.
+      </footer>
     </section>
-
-    <section>
-      <audio loop data-sound="bg-sound">
-        <source src="sounds/bgSound.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio data-sound="user-choice">
-        <source src="sounds/userChoice.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio data-sound="win">
-        <source src="sounds/youWin.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio data-sound="loose">
-        <source src="sounds/youLose.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio data-sound="draw">
-        <source src="sounds/draw.mp3" type="audio/mpeg" />
-      </audio>
-
-      <audio data-sound="again">
-        <source src="sounds/playAgain.mp3" type="audio/mpeg" />
-      </audio>
-    </section>
-
-    <footer class="attribution">
-      Challenge by
-      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
-        >Frontend Mentor</a
-      >. Coded by
-      <a href="https://github.com/lankiman" target="_blank">Lankiman</a>.
-    </footer>
 
     <script src="index.js"></script>
   </body>

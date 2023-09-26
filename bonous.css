@@ -33,9 +33,12 @@ body {
   background-size: 50%;
   background-position: center 3rem;
 }
-.results {
-  top: 18rem;
+#footer {
+  top: 30%;
 }
+/* .results {
+  top: 18rem;
+} */
 .icon {
   width: 8rem;
   height: 8rem;
@@ -128,6 +131,8 @@ body {
     width: 80%;
     height: 25rem;
 
+    top: 10%;
+
     margin: 0 auto;
     margin-top: 5rem;
 
@@ -136,12 +141,12 @@ body {
   }
 
   .Paper {
-    top: 9rem;
+    top: 8rem;
     left: 21rem;
   }
   .Scissors {
     top: 2rem;
-    left: calc(100% - 21rem);
+    left: calc(100% - 20rem);
   }
   .Rock {
     top: 20rem;
@@ -175,6 +180,9 @@ body {
 
     background-size: 80%;
     background-position: center;
+  }
+  #footer {
+    top: auto;
   }
 }
 /* End of Meida Queries*/
